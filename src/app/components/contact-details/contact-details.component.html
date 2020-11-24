@@ -1,10 +1,12 @@
+<h3>Contact Details</h3>
+<hr>
+
 <div class="row">
   <div class="col-sm-4">Firstname</div>
-  <div class="col-sm-8">{{contact.firstname}}</div>
-</div>
-<div class="row">
-  <div class="col-sm-4">Lastname</div>
-  <div class="col-sm-8">{{contact.lastname}}</div>
+  <div class="col-sm-8">
+    {{contact.gender === 'Male' ? 'Mr.' : 'Ms.'}}
+    {{contact.firstname}} {{contact.lastname}}
+  </div>
 </div>
 <div class="row">
   <div class="col-sm-4">Date of birth</div>
