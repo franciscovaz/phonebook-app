@@ -6,6 +6,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeComponent } from './components/home/home.component';
 import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
+import { FullnamePipe } from './pipes/fullname.pipe';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ContactDetailsComponent } from './components/contact-details/contact-de
     HeaderComponent,
     SidebarComponent,
     HomeComponent,
-    ContactDetailsComponent
+    ContactDetailsComponent,
+    FullnamePipe
   ],
   imports: [
     BrowserModule

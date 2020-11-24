@@ -4,8 +4,7 @@
 <div class="row">
   <div class="col-sm-4">Firstname</div>
   <div class="col-sm-8">
-    {{contact.gender === 'Male' ? 'Mr.' : 'Ms.'}}
-    {{contact.firstname}} {{contact.lastname}}
+    {{ contact | fullname}}
   </div>
 </div>
 <div class="row">
