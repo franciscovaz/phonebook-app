@@ -21,4 +21,12 @@ export class PhonebookService {
   addNewContact(contact: Contact): Observable<Contact> {
     return this.http.post(baseUrl, contact).map(data => data as Contact);
   }
+
+  updateContact(contact: Contact): Observable<Contact> {
+    return this.http.put(baseUrl + contact.id, contact).map(data => data as Contact);
+  }
+
+  deleteContact(contact: Contact):Observable<Contact> {
+    return this.http.delete(baseUrl + contact.id).map(data => data as Contact)
+  }
 }
