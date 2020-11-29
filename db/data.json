@@ -1,0 +1,30 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "firstname":"Francisco",
+      "lastname":"Vaz",
+      "email":"ftomasvaz@gmail.com",
+      "phone":"911111111",
+      "gender":"Male",
+      "city":"Ilhavo",
+      "state":"Aveiro",
+      "country":"Portugal",
+      "dob":"1995-06-15",
+      "picture":"https://avatars2.githubusercontent.com/u/27808014?s=460&u=cf949e2367d64368dee7273a81e2ff061956052e&v=4"
+    },
+    {
+      "id": 2,
+      "firstname":"John",
+      "lastname":"Doe",
+      "email":"johndoe@gmail.com",
+      "phone":"919999999",
+      "gender":"Male",
+      "city":"Ilhavo",
+      "state":"Aveiro",
+      "country":"Portugal",
+      "dob":"1996-06-15",
+      "picture": null
+    }
+  ]
+}
