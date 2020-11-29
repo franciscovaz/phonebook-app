@@ -26,7 +26,15 @@ export class PhonebookService {
     return this.http.put(baseUrl + contact.id, contact).map(data => data as Contact);
   }
 
-  deleteContact(contact: Contact):Observable<Contact> {
-    return this.http.delete(baseUrl + contact.id).map(data => data as Contact)
+  deleteContact(contact: Contact):Observable<any> {
+    return this.http.delete(baseUrl + contact.id);
+  }
+
+  getAllContact(pageNumber: number = 1): Observable<Contact[]> {
+    let params = {
+      '_page': '' + pageNumber
+    };
+
+    return this.http.get(baseUrl, {params}).map(resp => resp as Contact[])
   }
 }
