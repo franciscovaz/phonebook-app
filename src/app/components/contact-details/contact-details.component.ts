@@ -9,12 +9,12 @@ import { Contact } from '../../model/contact';
 })
 export class ContactDetailsComponent implements OnInit {
 
-  contact: Contact;
+  contact: Contact = new Contact();
 
   constructor(private service: PhonebookService) { }
 
   ngOnInit(): void {
-    this.contact = this.service.getContactDetail(1);
+    this.service.getContactDetail(1).subscribe(response => this.contact = response);
   }
 
 }
