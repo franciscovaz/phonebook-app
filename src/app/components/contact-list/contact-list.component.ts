@@ -10,12 +10,19 @@ import { PhonebookService } from 'src/app/services/phonebook.service';
 export class ContactListComponent implements OnInit {
 
   contacts: Contact[];
+  pageNumber: number = 1;
 
   constructor(private service: PhonebookService) { }
 
   ngOnInit(): void {
     this.service.getAllContacts()
       .subscribe(resp => this.contacts = resp);
+  }
+
+  loadMore() {
+    this.pageNumber++;
+    this.service.getAllContacts(this.pageNumber)
+      .subscribe(data => this.contacts = [...this.contacts, ...data])
   }
 
 }
