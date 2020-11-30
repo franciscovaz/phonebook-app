@@ -30,7 +30,7 @@ export class PhonebookService {
     return this.http.delete(baseUrl + contact.id);
   }
 
-  getAllContact(pageNumber: number = 1): Observable<Contact[]> {
+  getAllContacts(pageNumber: number = 1): Observable<Contact[]> {
     let params = {
       '_page': '' + pageNumber
     };
