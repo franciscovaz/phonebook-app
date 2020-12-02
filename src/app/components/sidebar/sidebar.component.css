@@ -2,3 +2,7 @@
   min-height: 600px;
   /* height: 100vh; */
 }
+button {
+  outline: 0;
+  border: none;
+}
