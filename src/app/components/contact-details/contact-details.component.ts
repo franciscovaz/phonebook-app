@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { PhonebookService } from 'src/app/services/phonebook.service';
 import { Contact } from '../../model/contact';
 
@@ -11,10 +12,16 @@ export class ContactDetailsComponent implements OnInit {
 
   contact: Contact = new Contact();
 
-  constructor(private service: PhonebookService) { }
+  constructor(private service: PhonebookService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.service.getContactDetail(1).subscribe(response => this.contact = response);
+    // get id from params: this.route.snapshot.params['id']
+
+    // another way to get id from params
+    this.route.params.subscribe(routeParams => {
+      this.service.getContactDetail(routeParams['id']).subscribe(response => this.contact = response);
+    })
+
   }
 
 }
