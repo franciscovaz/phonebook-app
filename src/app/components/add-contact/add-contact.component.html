@@ -9,6 +9,18 @@
       minlength="3" maxlength="15" #firstname="ngModel">
   </div>
 
+  <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert alert-danger">
+    <div *ngIf="firstname.errors.required">
+      Firstname is required
+    </div>
+    <div *ngIf="firstname.errors.minlength">
+      Firstname must have at least 3 charecters
+    </div>
+    <div *ngIf="firstname.errors.maxlength">
+      Firstname cant have more thank 15 characters
+    </div>
+  </div>
+
   <div class="form-group">
     <label for="lastname">Lastname</label>
     <input type="text" id="lastname" class="form-control" name="lastname" [(ngModel)]="contact.lastname">
@@ -22,12 +34,14 @@
 
   <div class="form-group">
     <label for="emailaddress">Email address</label>
-    <input type="text" id="emailaddress" class="form-control" name="email" [(ngModel)]="contact.email">
+    <input type="text" id="emailaddress" class="form-control" #email="ngModel" required name="email"
+      [(ngModel)]="contact.email">
   </div>
 
   <div class="form-group">
     <label for="phonenumber">Phone number</label>
-    <input type="text" id="phonenumber" class="form-control" name="phone" [(ngModel)]="contact.phone">
+    <input type="text" id="phonenumber" class="form-control" #phone="ngModel" required pattern="\d{10,12}" name="phone"
+      [(ngModel)]="contact.phone">
   </div>
 
   <div class="form-group">
