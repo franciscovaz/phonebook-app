@@ -1,13 +1,12 @@
 <h3>Add new contact details</h3>
 <hr>
 
-{{ contact | json }}
-
-<form class="form">
+<form class="form" #f1="ngForm">
 
   <div class="form-group">
     <label for="firstname">Firstname</label>
-    <input type="text" id="firstname" class="form-control" name="firstname" [(ngModel)]="contact.firstname">
+    <input type="text" id="firstname" class="form-control" name="firstname" [(ngModel)]="contact.firstname" required
+      minlength="3" maxlength="15" #firstname="ngModel">
   </div>
 
   <div class="form-group">
@@ -56,6 +55,6 @@
     <input type="text" id="picture" class="form-control" name="picture" [(ngModel)]="contact.picture">
   </div>
 
-  <button class="btn btn-primary" (click)="addContact()">Add</button>
+  <button class="btn btn-primary" [disabled]="f1.invalid" (click)="addContact()">Add</button>
 
 </form>
