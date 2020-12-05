@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -11,6 +12,7 @@ import { ContactDetailsComponent } from './components/contact-details/contact-de
 import { FullnamePipe } from './pipes/fullname.pipe';
 import { AgePipe } from './pipes/age.pipe';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
+import { AddContactComponent } from './components/add-contact/add-contact.component';
 
 
 const routes: Routes = [
@@ -30,6 +32,10 @@ const routes: Routes = [
   {
     path: 'contact-details/:id',
     component: ContactDetailsComponent
+  },
+  {
+    path: 'add-contact',
+    component: AddContactComponent
   }
 ];
 @NgModule({
@@ -41,12 +47,14 @@ const routes: Routes = [
     ContactDetailsComponent,
     FullnamePipe,
     AgePipe,
-    ContactListComponent
+    ContactListComponent,
+    AddContactComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
