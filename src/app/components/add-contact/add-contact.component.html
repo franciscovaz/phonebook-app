@@ -9,8 +9,8 @@
       minlength="3" maxlength="15" #firstname="ngModel">
   </div>
 
-  <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert alert-danger">
-    <div *ngIf="firstname.errors.required">
+  <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="err">
+    <div *ngIf="firstname.errors['required']">
       Firstname is required
     </div>
     <div *ngIf="firstname.errors.minlength">
