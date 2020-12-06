@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PhonebookService } from 'src/app/services/phonebook.service';
 import { Contact } from '../../model/contact';
 
+const swal = window['swal'];
 @Component({
   selector: 'pb-contact-details',
   templateUrl: './contact-details.component.html',
@@ -27,14 +28,43 @@ export class ContactDetailsComponent implements OnInit {
     })
   }
 
-  deleteContact() {
-    if(!confirm('Are you sure?')){
-      return;
-    }
+  testSwal() {
+    // swal('hello');
+    // swal('Phonebook App', 'Hello Friend', 'warning');
+    /* swal({
+      title: 'Phonebook App',
+      icon: 'info',
+      text: 'You are in contact-details page'
+    }) */
 
-    this.service.deleteContact(this.contact)
-      .subscribe(() => {
-        this.router.navigate(['/contact-list'])
+  }
+
+  deleteContact() {
+
+    swal({
+      title: 'You are about to delete this contact',
+      text: 'Please confirm',
+      icon: 'warning',
+      buttons: [
+        {
+          text: 'Yes, I am sure',
+          visible: true,
+          value: true
+        },
+        {
+          text: 'Cancel',
+          visible: true,
+          value: false
+        }
+      ]
+    })
+      .then(result => {
+        if(result === true) {
+          this.service.deleteContact(this.contact)
+          .subscribe(() => {
+            this.router.navigate(['/contact-list'])
+          })
+        }
       })
   }
 

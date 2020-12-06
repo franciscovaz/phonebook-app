@@ -26,6 +26,7 @@
     "json-server": "^0.16.3",
     "rxjs": "~6.6.0",
     "rxjs-compat": "^6.6.3",
+    "sweetalert": "^2.1.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
