@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PhonebookService } from 'src/app/services/phonebook.service';
 
 @Component({
@@ -14,7 +14,8 @@ export class EditContactComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private service: PhonebookService
+    private service: PhonebookService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -37,6 +38,13 @@ export class EditContactComponent implements OnInit {
       picture: new FormControl('/assets/images/francisco.png'),
       dob: new FormControl()
     });
+  }
+
+  saveChanges() {
+    this.service.updateContact(this.contactForm.value)
+      .subscribe(contact => {
+        this.router.navigate(['contact-details', contact.id]);
+      })
   }
 
 }

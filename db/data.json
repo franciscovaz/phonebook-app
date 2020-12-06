@@ -17,14 +17,14 @@
       "id": 2,
       "firstname": "John",
       "lastname": "Doe",
+      "gender": "Male",
       "email": "johndoe@gmail.com",
       "phone": "919999999",
-      "gender": "Male",
       "city": "Ilhavo",
       "state": "Aveiro",
       "country": "Portugal",
-      "dob": "1996-06-15",
-      "picture": null
+      "picture": "",
+      "dob": "1996-06-15"
     },
     {
       "id": 5,
