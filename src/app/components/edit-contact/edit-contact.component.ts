@@ -20,7 +20,7 @@ export class EditContactComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.service.getContactDetail(params['id']).subscribe(contact => {
-        console.log(contact);
+        this.contactForm.setValue({...contact});
       })
     });
 
