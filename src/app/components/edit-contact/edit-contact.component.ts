@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PhonebookService } from 'src/app/services/phonebook.service';
 
@@ -27,11 +27,11 @@ export class EditContactComponent implements OnInit {
 
     this.contactForm = new FormGroup({
       id: new FormControl(),
-      firstname: new FormControl(),
+      firstname: new FormControl('', [Validators.required, Validators.minLength(3)]),
       lastname: new FormControl(),
       gender: new FormControl(),
-      email: new FormControl(),
-      phone: new FormControl(),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      phone: new FormControl('', [Validators.required, Validators.pattern(/^\d{9,12}$/)]),
       city: new FormControl(),
       state:new FormControl(),
       country: new FormControl(),
