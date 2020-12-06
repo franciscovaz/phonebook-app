@@ -6,6 +6,15 @@
     <input class="form-control" formControlName="firstname">
   </div>
 
+  <div class="err" *ngIf="contactForm.controls['firstname'].invalid && contactForm.controls['firstname'].dirty">
+    <div *ngIf="contactForm.controls['firstname'].errors.required">
+      Firstname is required!
+    </div>
+    <div *ngIf="contactForm.controls['firstname'].errors.minlength">
+      Firstname must have at least 3 letters
+    </div>
+  </div>
+
   <div class="form-group">
     <label>Lastname</label>
     <input class="form-control" formControlName="lastname">
@@ -22,9 +31,19 @@
     <input class="form-control" formControlName="email">
   </div>
 
+  <div class="err" *ngIf="contactForm.controls['email'].invalid && contactForm.controls['email'].dirty">
+    <div *ngIf="contactForm.controls['email'].errors.required">Email is required</div>
+    <div *ngIf="contactForm.controls['email'].errors.email">Must be an valid email</div>
+  </div>
+
   <div class="form-group">
     <label>Phone number</label>
     <input class="form-control" formControlName="phone">
+  </div>
+
+  <div class="err" *ngIf="contactForm.controls['phone'].invalid && contactForm.controls['phone'].dirty">
+    <div *ngIf="contactForm.controls['phone'].errors.required">Phone number is required</div>
+    <div *ngIf="contactForm.controls['phone'].errors.pattern">Phone number must have 9 to 12 digits</div>
   </div>
 
   <div class="form-group">
