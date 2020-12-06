@@ -13,6 +13,7 @@ import { FullnamePipe } from './pipes/fullname.pipe';
 import { AgePipe } from './pipes/age.pipe';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
 import { AddContactComponent } from './components/add-contact/add-contact.component';
+import { EditContactComponent } from './components/edit-contact/edit-contact.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'add-contact',
     component: AddContactComponent
+  },
+  {
+    path: 'edit-contact/:id',
+    component: EditContactComponent
   }
 ];
 @NgModule({
@@ -48,7 +53,8 @@ const routes: Routes = [
     FullnamePipe,
     AgePipe,
     ContactListComponent,
-    AddContactComponent
+    AddContactComponent,
+    EditContactComponent
   ],
   imports: [
     BrowserModule,
